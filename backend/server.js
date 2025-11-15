@@ -45,7 +45,7 @@ app.get("/api/health", (req, res) =>
   res.json({ ok: true, service: "web-stories-backend" })
 );
 
-const staticPath = path.join(process.cwd(), "..", "frontend", "dist");
+const staticPath = path.resolve(__dirname, "..", "frontend", "dist");
 app.use(express.static(staticPath));
 
 app.use((req, res) => {
