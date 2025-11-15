@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "cd frontend && npm install && npm run build",
+    "build": " npm install && cd frontend && npm install && npm run build",
     "start": "cross-env NODE_ENV=production node backend/server.js",
     "heroku-postbuild": "cd frontend && npm install && npm run build",
     "dev": "concurrently \"cross-env NODE_ENV=development nodemon backend/server.js\" \"cd frontend && npm run dev\""
