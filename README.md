@@ -52,4 +52,4 @@ NODE_ENV=development
 
 
 Frontend & Backend
-npm istall & npm run dev
+(npm istall & npm run dev)
