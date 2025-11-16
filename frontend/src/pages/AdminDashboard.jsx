@@ -45,7 +45,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="p-4 md:p-6">
+    <div className="p-2 md:p-6">
       <Card className="rounded-xl shadow-lg border-0 bg-white">
         <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 md:p-6">
           <CardTitle className="text-2xl sm:text-3xl font-bold text-gray-800">
