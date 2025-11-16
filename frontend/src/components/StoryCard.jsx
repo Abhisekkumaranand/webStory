@@ -5,7 +5,10 @@ import { Card, CardContent } from "./ui/card";
 export default function StoryCard({ story, to, onOpen, className = "" }) {
   const thumb =
     story?.slides && story.slides.length > 0
-      ? story.slides[0].thumbnail || story.slides[0].url
+      ? story.slides[0].thumbnail ||
+        (story.slides[0].resource_type === "video"
+          ? story.slides[0].url.replace('/upload/', '/upload/so_0/')
+          : story.slides[0].url)
       : null;
 
   const title = story?.title || "Untitled";
