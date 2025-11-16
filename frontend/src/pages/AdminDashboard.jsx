@@ -8,7 +8,7 @@ export default function AdminDashboard() {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [viewMode, setViewMode] = useState('list');
+  const [viewMode, setViewMode] = useState("list");
   const nav = useNavigate();
 
   const load = async () => {
@@ -38,14 +38,16 @@ export default function AdminDashboard() {
       await deleteStory(id);
       load();
     } catch (err) {
-      setError("Delete failed: " + (err.response?.data?.message || err.message));
+      setError(
+        "Delete failed: " + (err.response?.data?.message || err.message)
+      );
     }
   };
 
   return (
-    <div className="p-6">
+    <div className="p-4 md:p-6">
       <Card className="rounded-xl shadow-lg border-0 bg-white">
-        <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6">
+        <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 md:p-6">
           <CardTitle className="text-2xl sm:text-3xl font-bold text-gray-800">
             Admin Dashboard
           </CardTitle>
@@ -57,11 +59,11 @@ export default function AdminDashboard() {
               <Button
                 variant="ghost"
                 size="xs"
-                onClick={() => setViewMode('list')}
+                onClick={() => setViewMode("list")}
                 className={`flex items-center gap-1 rounded-md px-3 py-1 text-xs font-medium transition-all duration-200 ${
-                  viewMode === 'list'
-                    ? 'bg-white text-gray-900 shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
+                  viewMode === "list"
+                    ? "bg-white text-gray-900 shadow-sm"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
                 }`}
               >
                 <svg
@@ -82,11 +84,11 @@ export default function AdminDashboard() {
               <Button
                 variant="ghost"
                 size="xs"
-                onClick={() => setViewMode('grid')}
+                onClick={() => setViewMode("grid")}
                 className={`flex items-center gap-1 rounded-md px-3 py-1 text-xs font-medium transition-all duration-200 ${
-                  viewMode === 'grid'
-                    ? 'bg-white text-gray-900 shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
+                  viewMode === "grid"
+                    ? "bg-white text-gray-900 shadow-sm"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
                 }`}
               >
                 <svg
@@ -106,9 +108,9 @@ export default function AdminDashboard() {
               </Button>
             </div>
             <Link to="/admin/new">
-              <Button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
+              <Button className="flex items-center gap-1 md:gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-2 py-1 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 w-full sm:w-auto">
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3 md:w-4 md:h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -125,7 +127,7 @@ export default function AdminDashboard() {
             </Link>
           </div>
         </CardHeader>
-        <CardContent className="p-6">
+        <CardContent className="p-4 md:p-6">
           {error && (
             <div className="text-red-600 mb-6 p-3 bg-red-50 rounded-lg border border-red-200">
               {error}
@@ -134,33 +136,34 @@ export default function AdminDashboard() {
 
           {/* View */}
           <div className="block">
-            {viewMode === 'list' ? (
+            {viewMode === "list" ? (
               <>
-                <div className="md:hidden space-y-6">
+                <div className="md:hidden space-y-4">
                   {stories.map((s) => (
                     <Card
                       key={s._id}
                       className="shadow-lg hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-white to-gray-50 border-0 rounded-xl overflow-hidden"
                     >
-                      <CardContent className="p-6">
+                      <CardContent className="p-4 md:p-6">
                         <div className="space-y-5">
                           <div className="flex items-start justify-between">
                             <div className="flex-1">
-                              <h3 className="font-bold text-gray-900 text-2xl leading-tight mb-3">
+                              <h3 className="font-bold text-gray-900 text-xl md:text-2xl leading-tight mb-3">
                                 {s.title}
                               </h3>
                               <div className="flex items-center gap-3">
-                                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 shadow-sm">
+                                <span className="inline-flex items-center px-3 py-1 md:px-4 md:py-2 rounded-full text-sm font-medium bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 shadow-sm">
                                   {s.category}
                                 </span>
-                                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-green-100 to-green-200 text-green-800 shadow-sm">
+                                <span className="inline-flex items-center px-3 py-1 md:px-4 md:py-2 rounded-full text-sm font-medium bg-gradient-to-r from-green-100 to-green-200 text-green-800 shadow-sm">
                                   {s.slides?.length || 0} slides
                                 </span>
                               </div>
                             </div>
                           </div>
                           <div className="text-sm text-gray-600 font-medium bg-gray-100 px-3 py-2 rounded-lg">
-                            Created: {new Date(s.createdAt).toLocaleDateString()}
+                            Created:{" "}
+                            {new Date(s.createdAt).toLocaleDateString()}
                           </div>
                           <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-200">
                             <Button
@@ -267,7 +270,9 @@ export default function AdminDashboard() {
                           }`}
                         >
                           <td className="p-4 border-b border-gray-200">
-                            <div className="font-medium text-gray-900">{s.title}</div>
+                            <div className="font-medium text-gray-900">
+                              {s.title}
+                            </div>
                           </td>
                           <td className="p-4 border-b border-gray-200">
                             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 shadow-sm">
@@ -367,18 +372,18 @@ export default function AdminDashboard() {
                     key={s._id}
                     className="shadow-lg hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-white to-gray-50 border-0 rounded-xl overflow-hidden"
                   >
-                    <CardContent className="p-6">
+                    <CardContent className="p-4 md:p-6">
                       <div className="space-y-5">
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
-                            <h3 className="font-bold text-gray-900 text-2xl leading-tight mb-3">
+                            <h3 className="font-bold text-gray-900 text-xl md:text-2xl leading-tight mb-3">
                               {s.title}
                             </h3>
                             <div className="flex items-center gap-3">
-                              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 shadow-sm">
+                              <span className="inline-flex items-center px-3 py-1 md:px-4 md:py-2 rounded-full text-sm font-medium bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 shadow-sm">
                                 {s.category}
                               </span>
-                              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-green-100 to-green-200 text-green-800 shadow-sm">
+                              <span className="inline-flex items-center px-3 py-1 md:px-4 md:py-2 rounded-full text-sm font-medium bg-gradient-to-r from-green-100 to-green-200 text-green-800 shadow-sm">
                                 {s.slides?.length || 0} slides
                               </span>
                             </div>
@@ -464,7 +469,6 @@ export default function AdminDashboard() {
               </div>
             )}
           </div>
-
         </CardContent>
       </Card>
     </div>

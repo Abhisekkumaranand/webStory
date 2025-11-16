@@ -44,7 +44,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-8 pb-16">
+      <div className="max-w-7xl mx-auto   pb-16">
         {stories.length === 0 ? (
           <div className="text-center py-16">
             <div className="mb-6">
@@ -77,9 +77,9 @@ export default function Home() {
             </div>
 
             {categories.map((cat) => (
-              <section key={cat} className="mb-16 bg-gray-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-semibold text-gray-800 mb-8 border-b border-gray-300 pb-4">{cat}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              <section key={cat} className="mb-8 md:mb-16 bg-gray-50 rounded-2xl p-4 md:p-8">
+                <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-8 border-b border-gray-300 pb-2 md:pb-4">{cat}</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
                   {stories
                     .filter((s) => (s.category || "General") === cat)
                     .map((s) => (
