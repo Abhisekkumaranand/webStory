@@ -165,7 +165,7 @@ export default function AdminDashboard() {
                             Created:{" "}
                             {new Date(s.createdAt).toLocaleDateString()}
                           </div>
-                          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-200">
+                          <div className="flex gap-3 pt-4 border-t border-gray-200">
                             <Button
                               variant="outline"
                               size="xs"
@@ -392,7 +392,7 @@ export default function AdminDashboard() {
                         <div className="text-sm text-gray-600 font-medium bg-gray-100 px-3 py-2 rounded-lg">
                           Created: {new Date(s.createdAt).toLocaleDateString()}
                         </div>
-                        <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-200">
+                        <div className="flex gap-3 pt-4 border-t border-gray-200">
                           <Button
                             variant="outline"
                             size="xs"
